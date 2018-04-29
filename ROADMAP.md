@@ -2,6 +2,7 @@
 
 **Things that need to be made:**
 + Turrets
+  * Turret
   * Auto Turret
   * Laser Turret
   * Auto Laser Turret
