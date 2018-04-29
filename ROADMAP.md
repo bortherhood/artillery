@@ -1,8 +1,7 @@
 # ROADMAP
 
 **Things that need to be made:**
-*	Turrets
-  *	Turret
++ Turrets
   * Auto Turret
   * Laser Turret
   * Auto Laser Turret
