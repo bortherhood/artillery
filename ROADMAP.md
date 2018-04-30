@@ -11,3 +11,6 @@
 *	Tanks
 *	Barbed wire
 *	Concrete stuff
+*	Arm cannon
+*	Bunker doors
+*	Sandbags
