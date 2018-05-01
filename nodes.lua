@@ -109,3 +109,26 @@ minetest.register_node("artillery:concrete", {
 })
 
 register_stair_and_slab("artillery:concrete")
+
+--
+--SandBags | Bags with sand in them
+--
+
+minetest.register_node("artillery:sandbag", {
+	description = "Sandbag",
+	tiles = {
+        "sandbag_top.png",
+        "sandbag_bottom.png",
+        "sandbag_right.png",
+        "sandbag_left.png",
+        "sandbag_back.png",
+        "sandbag_front.png"
+    },
+    groups = {crumbly = 3},
+    on_blast = function(pos, intensity)
+		minetest.set_node(pos, {name = "air"})
+		minetest.add_item(pos, "default:sand")
+	end,
+})
+
+register_stair_and_slab("artillery:sandbag")
