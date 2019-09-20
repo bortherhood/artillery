@@ -1,14 +1,15 @@
---Functions
---
+---
+--- Functions
+---
 
---Slabs And Stairs
+-- Slabs and stairs
 
 local function rotate_and_place(itemstack, placer, pointed_thing)
     local p0 = pointed_thing.under
     local p1 = pointed_thing.above
     local param2 = 0
 
-    local placer_pos = placer:getpos()
+    local placer_pos = placer:get_pos()
     if placer_pos then
         param2 = minetest.dir_to_facedir(vector.subtract(p1, placer_pos))
     end
@@ -91,7 +92,7 @@ local function register_cracked(number)
 end
 
 --
---Concrete | It's as tough as a mixture of sand, gravel, and water!
+-- Concrete | It's as tough as a mixture of sand, gravel, and water!
 --
 
 register_cracked(1)
@@ -122,7 +123,7 @@ minetest.register_node("artillery:concrete", {
 register_stair_and_slab("artillery:concrete")
 
 --
---SandBags | Bags with sand in them
+-- SandBags | Bags with sand in them
 --
 
 minetest.register_node("artillery:sandbag", {
@@ -146,10 +147,10 @@ minetest.register_node("artillery:sandbag", {
 register_stair_and_slab("artillery:sandbag")
 
 --
---Special
+-- Special
 --
 
---4 = 180. 11
+-- 4 = 180.11
 local function register_placer(name, ex, wy, zee)
     local function spawncoolthing(pos, name, dir)
         local rotate = 0
@@ -182,7 +183,7 @@ register_placer("bunker_small", 0, -6, 0)
 register_placer("small_fort", 0, -1, 0)
 
 --
---Barbed Wire | Don't touch the pointy things. They hurt
+-- Barbed Wire | Don't touch the pointy things. They hurt
 --
 
 minetest.register_node("artillery:barbedwire", {
@@ -193,14 +194,14 @@ minetest.register_node("artillery:barbedwire", {
     paramtype = "light",
     walkable = false,
     damage_per_second = 3.5,
-    groups = {snappy=1, attached_node=1},
+    groups = {snappy = 1, attached_node = 1},
     on_blast = function(pos, intensity)
         return false
     end
 })
 
 --
---Lights | Things that scare away the darkness
+-- Lights | Things that scare away the darkness
 --
 
 local function register_torch_extras(node_name)

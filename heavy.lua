@@ -26,7 +26,7 @@ local bomb_entity = {
 	textures = {'default_stone.png', 'default_stone.png', 'default_stone.png', 'default_stone.png', 'default_stone.png', 'default_stone.png'},
 	collisionbox = {4, 4, 4, 4, 4, 4},
 	on_step = function(self, dtime)
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		check(self, pos)
 	end
 }
@@ -40,7 +40,7 @@ local grenade_entity = {
 	textures = {'default_stone.png'},
 	collisionbox = {10, 10, 10, 10, 10, 10},
 	on_step = function(self, dtime)
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		local node = minetest.get_node(pos)
 		time_since_spawned = time_since_spawned + dtime
 
@@ -57,18 +57,18 @@ minetest.register_entity("artillery:grenadey", grenade_entity)
 
 function fire_bomb(name, radius, pos, distance, direction)
 	local dir = minetest.facedir_to_dir(direction)
-	local obj = minetest.add_entity({x=pos.x+dir.x, y=pos.y+1, z=pos.z+dir.z}, name) --Adds bomb one node above starting node
+	local obj = minetest.add_entity({x=pos.x+dir.x, y=pos.y+1, z=pos.z+dir.z}, name) -- Adds bomb one node above starting node
 
-	obj:set_velocity({x=dir.x*(distance/2), y=20, z=dir.z*(distance/2)}) --Starting velocity
-	obj:setacceleration({x=dir.x*(distance/2), y=-30, z=dir.z*(distance/2)}) --Acceleration after the bomb starts moving. Negative numbers slow it down
+	obj:set_velocity({x=dir.x*(distance/2), y=20, z=dir.z*(distance/2)}) -- Starting velocity
+	obj:set_acceleration({x=dir.x*(distance/2), y=-30, z=dir.z*(distance/2)}) -- Acceleration after the bomb starts moving. Negative numbers slow it down
 end
 
 function throw_grenade(name, pos, direction)
 	local dir = direction
 	local obj = minetest.add_entity({x=pos.x+dir.x, y=pos.y+1.3, z=pos.z+dir.z}, name)
 
-	obj:set_velocity({x=dir.x*5, y=5, z=dir.z*5}) --Starting velocity
-	obj:setacceleration({x=dir.x, y=-10, z=dir.z}) --Acceleration after the bomb starts moving
+	obj:set_velocity({x=dir.x*5, y=5, z=dir.z*5}) -- Starting velocity
+	obj:set_acceleration({x=dir.x, y=-10, z=dir.z}) -- Acceleration after the bomb starts moving
 end
 
 minetest.register_craftitem("artillery:shell", {
@@ -192,7 +192,7 @@ minetest.register_node("artillery:grenade", {
 
 		if player ~= nil and meta:get_int("active") == 1 then
 			throw_grenade("artillery:grenadey", placer:get_pos(), placer:get_look_dir())
-			if not minetest.setting_getbool("creative_mode") then
+			if not minetest.settings:get_bool("creative_mode") then
 				inv:remove_item("main", "artillery:grenade")
 			end
 		end
