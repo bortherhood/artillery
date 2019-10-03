@@ -5,4 +5,4 @@
 	 /_/   \_\_|   \__|_|_|_|\___|_|   \__, |
                                         |___/ ~Pew pew
 
-This will soon be a mod for heavy artillery (turrets, laz0rs, etc..).
+This will soon be a mod for heavy artillery (turrets, laz0rs, etc.).
