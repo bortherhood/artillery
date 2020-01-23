@@ -3,7 +3,7 @@ Licensed under 3-Clause BSD License
 Copyright (c) 2018 Aurailus (Benjamin Collings)
 Copyright (c) 2018 ChimneySwift
 Copyright (c) 2018 GreenDimond (Alex)
-Copyright (c) 2018 Lone_Wolf
+Copyright (c) 2018-2020 Lone_Wolf
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
